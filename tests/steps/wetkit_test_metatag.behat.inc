@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Provide Behat step-definitions for generic Panopoly tests.
+ * Provide Behat step-definitions for generic WetKit tests.
  *
  */
 

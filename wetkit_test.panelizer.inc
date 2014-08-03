@@ -61,7 +61,7 @@ function wetkit_test_panelizer_defaults() {
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
         'image_link' => 'content',
-        'image_style' => 'panopoly_image_half',
+        'image_style' => 'wetkit_image_half',
       ),
       'context' => 'panelizer',
       'override_title' => 0,
