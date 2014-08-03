@@ -1,5 +1,5 @@
 name = WetKit Test
-description = Provides configuration and functionality for use in the Panopoly automated tests.
+description = Provides configuration and functionality for use in the WetKit automated tests.
 core = 7.x
 package = WetKit
 project = wetkit_test
@@ -9,8 +9,8 @@ dependencies[] = image
 dependencies[] = list
 dependencies[] = node
 dependencies[] = options
-dependencies[] = panopoly_core
-dependencies[] = panopoly_pages
+dependencies[] = wetkit_core
+dependencies[] = wetkit_pages
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
