@@ -9,4 +9,5 @@ Feature: Search
     And I am on the homepage
     And I enter "stuff" for "Search"
     And press "Search"
+    Then I should debug "Text" in the "Search" element$/
     Then I should see "Your search yielded no results"
