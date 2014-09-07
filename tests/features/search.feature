@@ -8,5 +8,5 @@ Feature: Search
     Given I am logged in as a user with the "administrator" role
     And I am on the homepage
     And I enter "stuff" for "Search"
-    And press "#wb-srch-sub"
+    And press "wb-srch-sub"
     Then I should see "Your search yielded no results"
