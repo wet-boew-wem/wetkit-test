@@ -20,7 +20,7 @@ Feature: Metatags
         | body[und][0][format]           | wetkit_wysiwyg_text          |
         | Page title                     | SEO optimized title          |
         | Description                    | SEO optimized description    |
-        | metatags[keywords][value]      | SEO optimized keywords       |
+        | metatags[en][keywords][value]  | SEO optimized keywords       |
         | workbench_moderation_state_new | published                    |
       And I type "Testing metatags" in the "edit-body-und-0-value" WYSIWYG editor
       And I press "edit-submit"
