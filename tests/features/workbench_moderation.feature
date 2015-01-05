@@ -27,5 +27,5 @@ Background:
   Scenario: Reverting a revision should create a new draft copy
     When I click "Moderate" in the "Tabs" region
       And I click "Revert" in the "Moderation" region
-      And I click the "Revert" button
+      And I press "edit-submit"
     Then the ".current-revision" element should not contain "This is the published revision"
