@@ -13,7 +13,7 @@ Background:
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"
     Then the "h1" element should contain "Published title"
-    When I click "Edit" in the "Tabs" region
+    When I click "New draft" in the "Tabs" region
       And I fill in the following:
         | Title  | Draft title |
         | Editor | plain_text  |
@@ -27,4 +27,5 @@ Background:
   Scenario: Reverting a revision should create a new draft copy
     When I click "Moderate" in the "Tabs" region
       And I click "Revert" in the "Moderation" region
-    Then the url should match "completely-other-title"
+      And I click the "Revert" button
+    Then the ".current-revision" element should not contain "This is the published revision"
