@@ -18,14 +18,12 @@ Feature: Test pathauto
     Then the url should match "testing-title"
 
   @api @wetkit_admin
-  Scenario: Pathauto should keep old url when changing the title
+  Scenario: Pathauto should automatically assign a new url when changing the title
     When I click "Edit" in the "Tabs" region
       And I fill in the following:
         | Title               | Completely other title |
       And I press "edit-submit"
-    Then the url should match "testing-title"
-    Given I go to "completely-other-title"
-    Then the response status code should be 404
+    Then the url should match "completely-other-title"
 
   @api @wetkit_admin
   Scenario: My own permalink should be kept even if changing title
