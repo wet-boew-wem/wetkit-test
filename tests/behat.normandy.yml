@@ -45,6 +45,8 @@ default:
         Media web tab: '#media-tab-media_internet'
         Media upload tab: '#media-tab-upload'
         Media library tab: '#media-tab-media_default--media_browser_1'
+        # For Workbench Moderation
+        Moderation: '.published-revision'
         # These are the regions for wetkit_bootstrap.
         Header: ".region-header"
         Featured: ".region-featured"
