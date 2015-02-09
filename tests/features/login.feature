@@ -1,7 +1,7 @@
 Feature: Anonymous user login
-In order to access content for authenticated users
-As an anonymous user
-I want to be able to login
+  In order to access content for authenticated users
+  As an anonymous user
+  I want to be able to login
 
   @standard_login
   Scenario: Admin user is able to login
