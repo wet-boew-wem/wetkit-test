@@ -17,3 +17,89 @@ Feature: Test Bean Types
       And I press "edit-submit"
       And I wait 2 seconds
   Then I should see a ".wb-twitter" element
+
+  @api @wetkit_bean
+  Scenario: User save WetKit Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-bean"
+      And I fill in the following:
+        | label                         | WxT Bean Label	|
+        | Title                         | WxT Bean Title	|
+        | Editor			| plain_text		|
+        | Body				| WxT Bean Body		|
+        | Taxonomy		        | departments		|
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Bean Title"
+	  And the ".field-name-field-bean-wetkit-body" element should contain "WxT Bean Body"
+
+  @api @wetkit_bean
+  Scenario: User save Media Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-media"
+      And I fill in the following:
+        | Label                         | WxT Media Label	|
+        | Title                         | WxT Media Title	|
+      And I select "image_thumbnail" from "image_style"
+      And I select "Default" from "view_mode"
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Media Title"
+
+  @api @wetkit_bean
+  Scenario: User save Share Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-share"
+      And I fill in the following:
+        | Label                         | WxT Share Label	|
+        | Title                         | WxT Share Title	|
+      And I select "Default" from "view_mode"
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Share Title"
+
+  @api @wetkit_bean
+  Scenario: User save Slide Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-slide"
+      And I fill in the following:
+        | Label                         | WxT Slideshow Label	|
+        | Title                         | WxT Slideshow Title	|
+      And I select "wetkit_image_thumbnail" from "image_style"
+      And I select "Default" from "view_mode"
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Slideshow Title"
+
+  @api @wetkit_bean
+  Scenario: User save Slideout Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-bean"
+      And I fill in the following:
+        | label                         | WxT Slideout Label	|
+        | Title                         | WxT Slideout Title	|
+        | Editor			| plain_text		|
+        | Body				| WxT Slideout Body	|
+      And I select "Default" from "view_mode"
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Slideout Title"
+	  And the ".field-name-field-bean-wetkit-body" element should contain "WxT Slideout Body"
+
+  @api @wetkit_bean
+  Scenario: User save Rate Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-rate"
+      And I fill in the following:
+        | label                         | WxT Rate Label	|
+        | Title                         | WxT Rate Title	|
+      And I select "Default" from "view_mode"
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Rate Title"
