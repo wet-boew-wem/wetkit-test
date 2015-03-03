@@ -8,15 +8,17 @@ Feature: Test Bean Types
     Given I am logged in as a user with the "administrator" role
     When I visit "/block/add/wetkit-twitter"
       And I fill in the following:
-        | Title                         | Testing title      |
-        | label                         | WxT Feed           |
-        | title_field[en][0][value]     | WxT Feed           |
+        | Title                         | WxT Twitter title  |
+        | label                         | WxT Twitter label  |
+        | Configure Twitter Custom CSS  | twitter-custom-css |
+        | title_field[en][0][value]     | WxT Twitter Feed   |
         | twitter_settings[username]    | WebExpToolkit      |
         | twitter_settings[widget_id]   | 461316119865737216 |
         | twitter_settings[tweet_limit] | 5                  |
       And I press "edit-submit"
       And I wait 2 seconds
   Then I should see a ".wb-twitter" element
+  And I should see a ".twitter-custom-css" element
 
   @api @wetkit_bean
   Scenario: User save WetKit Bean
@@ -25,9 +27,9 @@ Feature: Test Bean Types
       And I fill in the following:
         | label                         | WxT Bean Label	|
         | Title                         | WxT Bean Title	|
-        | Editor			| plain_text		|
-        | Body				| WxT Bean Body		|
-        | Taxonomy		        | departments		|
+        | Editor			                  | plain_text		|
+        | Body				                  | WxT Bean Body		|
+        | Taxonomy		                  | departments		|
       And I press "edit-submit"
       And I wait 2 seconds
 	  Then I should see a ".block-bean" element
