@@ -1,9 +1,19 @@
-Behat tests
+WxT Behat tests
 ===========
+
+Provides Behat tests for the Drupal Web Experience Toolkit (WxT).
+
+Key Features
+------------
+
+* Tests all Bean types
+* Tests all Content Types
+* Tests Archiving function
+* Tests Landing pages
+* Checks for Accessibility, Breadcrumbs, Translations, Metatags, URL alias, Searching, Workbench Moderation, Wysiwyg functions, and the Index page.
 
 Quick setup
 -----------
-
 
  1. Install Composer
 
