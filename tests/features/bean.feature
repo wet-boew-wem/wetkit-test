@@ -50,6 +50,33 @@ Feature: Test Bean Types
 	  Then I should see a ".block-bean" element
 	  And the "#wb-cont" element should contain "WxT Media Title"
 
+  @api @wetkit_admin
+  Scenario: User save Link Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-link"
+      And I fill in the following:
+        | label                         | WxT Link Label	|
+        | Title                         | WxT Link Title	|
+      And I select "Default" from "view_mode"
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Link Title"
+
+
+  @api @wetkit_admin
+  Scenario: User save Search Bean
+    Given I am logged in as a user with the "administrator" role
+    When I visit "/block/add/wetkit-search"
+      And I fill in the following:
+        | Label                         | WxT Search Label	|
+        | Title                         | WxT Search Title	|
+      And I select "Default" from "view_mode"
+      And I press "edit-submit"
+      And I wait 2 seconds
+	  Then I should see a ".block-bean" element
+	  And the "#wb-cont" element should contain "WxT Search Title"
+
   @api @wetkit_bean
   Scenario: User save Share Bean
     Given I am logged in as a user with the "administrator" role
