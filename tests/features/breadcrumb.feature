@@ -35,5 +35,4 @@ Feature: Breadcrumb
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"
     Then the "h1" element should contain "French Title of Basic Page"
-    And I should see the breadcrumb "Accueil"
     And I should see the breadcrumb "French Title of Basic Page"
