@@ -3,26 +3,38 @@ Feature: Basic Page Fields
   As a site administrator
   I need to enter information in the fields and see everything displayed as expected
 
-Background:
+  @api @wetkit_admin @javascript
+  Scenario: User creates and then translates a basic_page
     Given I am logged in as a user with the "administrator" role
+    # Create a basic page
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
-        | Title  | Title of Basic Page |
-        | Editor | plain_text      |
-        | Body   | Published body  |
+        | Title               | Title of Basic Page |
+        | Editor              | plain_text          |
+        | body[und][0][value] | Published body      |
       And I select "Published" from "workbench_moderation_state_new"
+      And I select "English" from "edit-language"
       And I check "field_featured_categories[und][1]"
       And I check "field_featured_categories[und][2]"
-      And I check "menu[enabled]"
-      And I fill in the following:
-        | Link title  | Basic Page menu link |
     When I press "edit-submit"
-
-
-  @api @wetkit_admin
-  Scenario: Creating a Basic Page has correct content in the right fields
-        Then the "h1" element should contain "Title of Basic Page"
+    # Check the fields of the basic page
+    Then the "h1" element should contain "Title of Basic Page"
+        And I should see the breadcrumb "Title of Basic Page"
         And the "p" element should contain "Published body"
         And I should see "departments" in the "Content Well"
         And I should see "features" in the "Content Well"
-        And I should see "Basic Page menu link" in the "Content Well"
+    # Translate the basic page
+    When I click "Translate" in the "Tabs" region
+      And I click the fake "add" button
+      And I fill in the following:
+        | Title               | French Title of Basic Page  |
+        | Editor              | plain_text                  |
+        | body[fr][0][value]  | French Published body       |
+      And I select "Published" from "workbench_moderation_state_new"
+    When I press "edit-submit"
+    # Check the fields of the translated page
+    Then the "h1" element should contain "French Title of Basic Page"
+        And I should see the breadcrumb "French Title of Basic Page"
+        And the "p" element should contain "French Published body"
+        And I should see "departments" in the "Content Well"
+        And I should see "features" in the "Content Well"
