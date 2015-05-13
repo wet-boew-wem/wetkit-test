@@ -6,7 +6,7 @@ default:
   extensions:
     Behat\MinkExtension\Extension:
       goutte: ~
-      selenium2: ~
+      # selenium2: ~
       files_path: ./
     Drupal\DrupalExtension\Extension:
       blackbox: ~
