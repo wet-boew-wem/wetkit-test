@@ -44,6 +44,7 @@ Feature: Test Bean Types
         | URL                          		          | http://bean-link-url	 |
         | field_bean_link[en][0][attributes][title] | Bean Link-title		     |
         | field_bean_link[en][0][attributes][class] | bean-link-custom-class |
+      And I select "Follow" from "links_settings[links_render]"
       And I select "Default" from "view_mode"
       And I press "edit-submit"
       And I wait 2 seconds
