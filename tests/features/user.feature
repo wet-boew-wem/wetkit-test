@@ -8,10 +8,10 @@ Feature: Test User Accounts
     Given I am logged in as a user with the "administrator" role
     When I visit "/admin/people/create"
       And I fill in the following:
-        | Username     | WxT User Name   |
-        | E-mail address   | WxT-User@test.ca  |
-        | Password     | Str0ngpass!   |
-        | Confirm password   | Str0ngpass!   |
+        | Username         | WxT User Name    |
+        | E-mail address   | WxT-User@test.ca |
+        | Password         | Str0ngpass!      |
+        | Confirm password | Str0ngpass!      |
       And I select "1" from "edit-status-1"
       And I select "4" from "edit-roles-4"
       Then I press "edit-submit"
