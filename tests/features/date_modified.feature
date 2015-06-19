@@ -20,4 +20,4 @@ Feature: Date Modified
     Then the "h1" element should contain "Title of Basic Page"
         And I should see the breadcrumb "Title of Basic Page"
         And the "p" element should contain "Published body"
-        And the "#wb-dtmd" element should contain "2015-06-18"
+        And the "time" element should contain "2015-06-18"
