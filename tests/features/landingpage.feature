@@ -15,4 +15,3 @@ Feature: Add landing page
       And I check "Pearson"
       And I press "Create Page"
     Then the "title" element should contain "Testing landing page title [random:1]"
-    And the ".active-trail" element should contain "Testing landing page title [random:1]"
