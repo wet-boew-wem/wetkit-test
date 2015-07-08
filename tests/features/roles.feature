@@ -12,6 +12,6 @@ Feature: Roles and permissions
     And I press "edit-add"
     Then I should see "Test New Role" in the "Content Well"
     Given I am on "admin/people/permissions/5"
-    And I check "edit-5-administer-accessibility-tests"
+    And I check "edit-5-administer-administration-menu-select"
     And I press "edit-submit"
     Then I should see "The changes have been saved."
