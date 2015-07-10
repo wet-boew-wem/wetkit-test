@@ -12,7 +12,6 @@ Feature: Date Modified
         | Title               | Title of Basic Page |
         | Editor              | plain_text          |
         | body[und][0][value] | Published body      |
-        | date[date]          | 2015-06-18          |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
     When I press "edit-submit"
@@ -20,4 +19,4 @@ Feature: Date Modified
     Then the "h1" element should contain "Title of Basic Page"
         And I should see the breadcrumb "Title of Basic Page"
         And the "p" element should contain "Published body"
-        And the "time" element should contain "2015-06-18"
+        And I should see the modified date in the "time" element in the "Pearson Content" region

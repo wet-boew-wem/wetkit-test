@@ -25,6 +25,13 @@ class TestSubContext extends BehatContext implements DrupalSubContextInterface {
   protected $landing_pages = array();
 
   /**
+   * Get the currentDate().
+   */
+  protected function currentDate() {
+    return new DateTime();
+  }
+
+  /**
    * Get the session from the parent context.
    */
   protected function getSession() {
@@ -93,6 +100,23 @@ class TestSubContext extends BehatContext implements DrupalSubContextInterface {
       return;
     }
     throw new \Exception(sprintf('The element "%s" was not found in the "%s" region on the page %s', $tag, $region, $this->getSession()->getCurrentUrl()));
+  }
+
+  /**
+   * @Then /^I should see the modified date in the "([^"]*)" element in the "([^"]*)" region$/
+   */
+  public function assertDateElementText($tag, $region) {
+    $text = $this->currentDate()->format('Y-m-d');
+    $regionObj = $this->getMainContext()->getRegion($region);
+    $results = $regionObj->findAll('css', $tag);
+    if (!empty($results)) {
+      foreach ($results as $result) {
+        if ($result->getText() == $text) {
+          return;
+        }
+      }
+    }
+    throw new \Exception(sprintf('The text "%s" was not found in the "%s" element in the "%s" region on the page %s', $text, $tag, $region, $this->getSession()->getCurrentUrl()));
   }
 
   /**
