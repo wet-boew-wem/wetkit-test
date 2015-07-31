@@ -29,7 +29,7 @@ Feature: Use rich text editor
   # we will run in Chrome only on Travis-CI to get consistent builds.
 
   # Test the Media plugin.
-  @api @javascript
+  @api @javascript @chrome
   Scenario: Add an image with format and alt text using Media
     When I type "Testing body" in the "edit-body-und-0-value" WYSIWYG editor
     # Upload the file.
@@ -63,7 +63,7 @@ Feature: Use rich text editor
       And I should see the image alt "Sample alt text" in the "Pearson Content" region
 
   # Test the Linkit plugin.
-  @api @javascript
+  @api @javascript @chrome
   Scenario: Add an link using Linkit
     When I type "Testing body" in the "edit-body-und-0-value" WYSIWYG editor
     # Insert a link.
