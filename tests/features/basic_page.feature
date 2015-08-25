@@ -4,7 +4,7 @@ Feature: Basic Page Fields
   I need to enter information in the fields and see everything displayed as expected
 
   @api @wetkit_admin @javascript
-  Scenario: User creates and then translates a basic_page with moderation
+  Scenario: User creates and then translates a basic page with moderation
     Given I am logged in as a user with the "administrator" role
     # Create a basic page
     When I visit "/node/add/wetkit-page"
