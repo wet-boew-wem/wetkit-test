@@ -7,8 +7,8 @@ Feature: Use rich text editor
     Given I am logged in as a user with the "administrator" role
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
-        | Title                | Testing WYSIWYG       |
-        | body[und][0][format] | wetkit_wysiwyg_text   |
+        | title_field[und][0][value] | Testing WYSIWYG       |
+        | body[und][0][format]       | wetkit_wysiwyg_text   |
 
   @api @javascript @chrome
   Scenario Outline: Format text in the editor
