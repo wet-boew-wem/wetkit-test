@@ -9,9 +9,9 @@ Feature: Documentation content type
     # Create a documentation page
     When I visit "/node/add/wetkit-documentation"
       And I fill in the following:
-        | Title               | Title of Documentation Page  |
-        | Editor              | plain_text                   |
-        | body[und][0][value] | Documentation Published body |
+        | title_field[und][0][value] | Title of Documentation Page  |
+        | Editor                     | plain_text                   |
+        | body[und][0][value]        | Documentation Published body |
       And I check "Published"
       And I select "English" from "edit-language"
       And I check "field_featured_categories[und][1]"
@@ -26,9 +26,9 @@ Feature: Documentation content type
     When I click "Translate" in the "Tabs" region
       And I click the fake "add" button
       And I fill in the following:
-        | Title  | French Title of Documentation Page  |
-        | Editor | plain_text                          |
-        | Body   | French Documentation Published body |
+        | title_field[fr][0][value]  | French Title of Documentation Page  |
+        | Editor                     | plain_text                          |
+        | Body                       | French Documentation Published body |
     When I press "edit-submit"
     # Check the fields of the translated documentation page
     Then I should see "French Title of Documentation Page" in the "Content Well"

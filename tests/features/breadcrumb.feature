@@ -18,9 +18,9 @@ Feature: Breadcrumb
     # Create a test page to test breadcrumbs
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
-        | Title  		| Title of Basic Page	|
-        | Editor 		| plain_text      	|
-        | body[und][0][value]	| Published body	|
+        | title_field[und][0][value] | Title of Basic Page |
+        | Editor                     | plain_text          |
+        | body[und][0][value]        | Published body      |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
     When I press "edit-submit"
@@ -31,7 +31,7 @@ Feature: Breadcrumb
     When I click "Translate" in the "Tabs" region
     And I click the fake "add" button
       And I fill in the following:
-        | edit-title-field-fr-0-value		| French Title of Basic Page	|
+        | edit-title-field-fr-0-value   | French Title of Basic Page  |
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"
     Then the "h1" element should contain "French Title of Basic Page"

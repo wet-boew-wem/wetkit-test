@@ -9,15 +9,15 @@ Feature: Test Menus
     # Test creating a menu
     When I visit "/admin/structure/menu/add"
       And I fill in the following:
-        | Title            | WxT menu title[random] |
+        | Title            | WxT menu title |
         | Description      | WxT menu description   |
       And I select "5" from "edit-i18n-mode-5"
       And I press "edit-submit"
-    Then the "h1" element should contain "WxT menu title[random:1]"
+    Then the "h1" element should contain "WxT menu title"
     # Test creating a menu link
     When I click the fake "Add link" button
       And I fill in the following:
-        | Menu link title                 | WxT menu link[random] |
+        | Menu link title                 | WxT menu link         |
         | edit-link-path                  | <front>               |
         | edit-options-attributes-title   | WxT menu link title   |
         | edit-options-attributes-rel     | nofollow              |
@@ -27,14 +27,14 @@ Feature: Test Menus
         | edit-options-item-attributes-class | custom-menu-item-css  |
       And I select "English" from "Language"
       And I press "edit-submit"
-    Then the ".custom-menu-link-css" element should contain "WxT menu link[random:1]"
+    Then the ".custom-menu-link-css" element should contain "WxT menu link"
     And the "#menu-overview" element should contain "WxT menu link title"
     # Test translating the menu link
     When I click the fake "edit" button
       Then I click the fake "Translate" button
       Then I click the fake "add translation" button
       And I fill in the following:
-        | Menu link title                  | WxT menu french link[random] |
+        | Menu link title                  | WxT menu french link         |
         | edit-options-attributes-title    | WxT menu link french title   |
         | edit-options-attributes-rel      | nofollow                     |
         | edit-options-attributes-class    | custom-menu-link-french-css  |
@@ -42,5 +42,5 @@ Feature: Test Menus
       And I fill in the following:
         | edit-options-item-attributes-class | custom-menu-item-french-css |
       And I press "edit-submit"
-    Then the ".table-responsive" element should contain "WxT menu french link[random:1]"
+    Then the ".table-responsive" element should contain "WxT menu french link"
       Then I press "edit-update"

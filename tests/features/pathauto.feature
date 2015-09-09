@@ -7,9 +7,9 @@ Feature: Test pathauto
     Given I am logged in as a user with the "administrator" role
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
-        | Title  | Testing title |
-        | Editor | plain_text    |
-        | Body   | Testing body  |
+        | title_field[und][0][value]  | Testing title |
+        | Editor                      | plain_text    |
+        | Body                        | Testing body  |
     When I press "edit-submit"
     Then the "h1" element should contain "Testing title"
 
@@ -21,7 +21,7 @@ Feature: Test pathauto
   Scenario: Pathauto should automatically assign a new url when changing the title
     When I click "Edit" in the "Tabs" region
       And I fill in the following:
-        | Title               | Completely other title |
+        | title_field[und][0][value] | Completely other title |
       And I press "edit-submit"
     Then the url should match "completely-other-title"
 
@@ -34,7 +34,7 @@ Feature: Test pathauto
     Then the url should match "my-custom-permalink"
     When I click "Edit" in the "Tabs" region
       And I fill in the following:
-        | Title               | Saving Title Again  |
+        | title_field[und][0][value] | Saving Title Again  |
       And I press "edit-submit"
     Then the url should match "my-custom-permalink"
     Given I go to "my-custom-permalink"

@@ -1,31 +1,31 @@
 <?php
 /**
  * @file
- * Provide Behat step-definitions for the Linkit module.
+ * Provide Behat step-definitions for the Media module.
  *
  * @todo Also, add a cleanup function to delete files uploaded.
  */
 
 use Drupal\DrupalExtension\Context\DrupalSubContextInterface;
-use Behat\Behat\Context\BehatContext;
+use Drupal\DrupalDriverManager;
+use Drupal\DrupalExtension\Context\RawDrupalContext;
 
-class LinkitSubContext extends BehatContext implements DrupalSubContextInterface {
+class LinkItSubContext extends RawDrupalContext implements DrupalSubContextInterface {
+
+  /**
+   * Contains the DrupalDriverManager.
+   *
+   * @var \Drupal\DrupalDriverManager
+   */
+  private $drupal;
+
   /**
    * Initializes context.
    */
-  public function __construct(array $parameters = array()) {
+  public function __construct(DrupalDriverManager $drupal) {
+    $this->drupal = $drupal;
   }
 
-  public static function getAlias() {
-    return 'linkit';
-  }
-
-  /**
-   * Get the session from the parent context.
-   */
-  protected function getSession() {
-    return $this->getMainContext()->getSession();
-  }
 
   /**
    * @When /^I click on the linkit result with selector "([^"]*)"$/
@@ -33,6 +33,7 @@ class LinkitSubContext extends BehatContext implements DrupalSubContextInterface
   public function iClickTheLinkitResult($cssSelector)
   {
     $session = $this->getSession();
+    $session->executeScript('document.getElementsByClassName("better-autocomplete")[0].style.display = "block"');
     $element = $session->getPage()->find('xpath', $session->getSelectorsHandler()->selectorToXpath('css', $cssSelector));
     if (null === $element) {
       throw new \InvalidArgumentException(sprintf('Could not evaluate CSS Selector: "%s"', $cssSelector));

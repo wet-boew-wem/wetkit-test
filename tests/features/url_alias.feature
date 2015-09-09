@@ -7,9 +7,9 @@ Background:
     Given I am logged in as a user with the "administrator" role
     When I visit "/node/add/wetkit-page"
       Then I fill in the following:
-        | Title                | Title of Basic Page |
-        | Editor               | plain_text          |
-        | body[und][0][value]  | Published body      |
+        | title_field[und][0][value] | Title of Basic Page |
+        | Editor                     | plain_text          |
+        | body[und][0][value]        | Published body      |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
     When I press "edit-submit"
@@ -24,8 +24,8 @@ Background:
     When I visit "en/content/title-basic-page"
     And I click the fake "New draft" button
       Then I fill in the following:
-        | Title           | Test URL change         |
-        | edit-path-alias | content/test-url-change |
+        | title_field[en][0][value]  | Test URL change         |
+        | edit-path-alias            | content/test-url-change |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
     When I press "edit-submit"
@@ -35,8 +35,8 @@ Background:
     # Test the URL reset using auto-alias
     Then I click the fake "New draft" button
       Then I fill in the following:
-        | Title           | Test new title and URL  |
-        | edit-path-alias |                         |
+        | title_field[en][0][value]  | Test new title and URL  |
+        | edit-path-alias            |                         |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
     When I press "edit-submit"

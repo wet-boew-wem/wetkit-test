@@ -1,43 +1,43 @@
 default:
-  paths:
-    features: 'features'
-  filters:
-    tags: "~@chrome"
+  suites:
+    default:
+      paths:
+        features: 'features'
+      filters:
+        tags: "~@chrome"
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MarkupContext
+        - Drupal\DrupalExtension\Context\DrushContext
   extensions:
-    Behat\MinkExtension\Extension:
+    Behat\MinkExtension:
       goutte: ~
-      # selenium2: ~
-      files_path: ./
-    Drupal\DrupalExtension\Extension:
+      selenium2: ~
+      #base_url: http://mydrupalsite.com
+      #files_path: './profiles/wetkit/modules/wetkit/wetkit_test/tests'
+    Drupal\DrupalExtension:
       blackbox: ~
-      drush:
-        alias: self
-      # This will be setup by .travis.yml like so:
-      # export BEHAT_PARAMS="extensions[Drupal\\DrupalExtension\\Extension][drupal][drupal_root]=$DRUPAL_ROOT"
+      #drush:
+      #  root: '/path/to/drupal/root'
       #drupal:
-      #  drupal_root: "/path/to/drupal/root"
+      #  drupal_root: '/path/to/drupal/root'
       api_driver: 'drupal'
       region_map:
-        # Common Regions for Drupal WxT
+        # The region on wetkit_page where the body appears (frequently
+        # customized on child distributions).
         Breadcrumb: "ol.breadcrumb"
         Content Well: "main.container"
         Left Sidebar: "#wb-sec"
         Mega Menu: ".wb-menu"
         Tabs: ".tabs--primary"
         # Panels Layout Regions for Drupal WxT
-        Burr Flipped Content: ".burr-flipped-content-region"
-        Burr Flipped Sidebar: ".burr-flipped-sidebar-region"
         Pearson Content: ".region-pearson-first"
         Pearson Sidebar: ".region-pearson-second"
         # For Metatag specific regions
         Edit Metatags: "#edit-metatags"
-        # For Panels / WxT specific regions
-        Boxton Content: ".boxton-content"
-        Bryant Content: ".bryant-content"
-        Bryant Sidebar: ".bryant-sidebar"
-        Bryant Flipped Content: ".bryant-flipped-content"
-        Bryant Flipped Sidebar: ".bryant-flipped-sidebar"
-        # For Panels / WxT specific regions.
+        # For Panels / CTools specific regions.
         CTools modal: "#modalContent"
         Live preview: "fieldset.widget-preview"
         Linkit modal: "#linkit-modal"
@@ -48,6 +48,7 @@ default:
         # For Workbench Moderation
         Moderation: '.published-revision'
         # These are the regions for wetkit_bootstrap.
+        Main menu: "#main-menu"
         Header: ".region-header"
         Featured: ".region-featured"
         Highlighted: ".region-highlighted"
@@ -55,25 +56,22 @@ default:
         Content: ".region-content"
         Sidebar first: ".region-sidebar-first"
         Sidebar second: ".region-sidebar-second"
-        Triptych first: ".region-triptych-first"
-        Triptych middle: ".region-triptych-middle"
-        Triptych last: ".region-triptych-last"
         Footer first column: ".region-footer-firstcolumn"
         Footer second column: ".region-footer-secondcolumn"
         Footer third column: ".region-footer-thirdcolumn"
         Footer fourth column: ".region-footer-fourthcolumn"
         Footer: ".region-footer"
-      # Look in the profile modules directory and pull in module subcontexts.
-      subcontexts:
-        paths:
-          - "../../../"
+        Search: "#search-form"
+        Panopoly Magic Style Settings: "#panels-edit-style-settings-form #edit-general-settings"
 
 # Setup for Google Chrome only tests.
 chrome:
-  filters:
-    tags: "@chrome"
+  suites:
+    default:
+      filters:
+        tags: "@chrome"
   extensions:
-    Behat\MinkExtension\Extension:
+    Behat\MinkExtension:
       selenium2:
         browser: chrome
         capabilities: {"browser": "chrome", "browserName": "chrome", "browserVersion": "ANY", "version": "ANY"}

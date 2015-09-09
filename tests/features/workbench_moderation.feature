@@ -7,17 +7,17 @@ Background:
     Given I am logged in as a user with the "administrator" role
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
-        | Title  | Published title |
-        | Editor | plain_text      |
-        | Body   | Published body  |
+        | title_field[und][0][value]  | Published title |
+        | Editor                      | plain_text      |
+        | Body                        | Published body  |
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"
     Then the "h1" element should contain "Published title"
     When I click "New draft" in the "Tabs" region
       And I fill in the following:
-        | Title  | Draft title |
-        | Editor | plain_text  |
-        | Body   | Draft body  |
+        | title_field[und][0][value]  | Draft title |
+        | Editor                      | plain_text  |
+        | Body                        | Draft body  |
     When I press "edit-submit"
     Then the "h1" element should contain "Draft title"
     When I click "View published" in the "Tabs" region

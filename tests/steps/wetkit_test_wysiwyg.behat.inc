@@ -7,25 +7,25 @@
  */
 
 use Drupal\DrupalExtension\Context\DrupalSubContextInterface;
-use Behat\Behat\Context\BehatContext;
+use Drupal\DrupalDriverManager;
+use Drupal\DrupalExtension\Context\RawDrupalContext;
 
-class WysiwygSubContext extends BehatContext implements DrupalSubContextInterface {
+class WysiwygSubContext extends RawDrupalContext implements DrupalSubContextInterface {
+
+  /**
+   * Contains the DrupalDriverManager.
+   *
+   * @var \Drupal\DrupalDriverManager
+   */
+  private $drupal;
+
   /**
    * Initializes context.
    */
-  public function __construct(array $parameters = array()) {
+  public function __construct(DrupalDriverManager $drupal) {
+    $this->drupal = $drupal;
   }
 
-  public static function getAlias() {
-    return 'wysiwyg';
-  }
-
-  /**
-   * Get the session from the parent context.
-   */
-  protected function getSession() {
-    return $this->getMainContext()->getSession();
-  }
 
   /**
    * Get the instance variable to use in Javascript.
@@ -41,14 +41,11 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
    */
   protected function getWysiwygInstance($instanceId) {
     $instance = "CKEDITOR.instances['$instanceId']";
-
     if (!$this->getSession()->evaluateScript("return !!$instance")) {
       throw new \Exception(sprintf('The editor "%s" was not found on the page %s', $instanceId, $this->getSession()->getCurrentUrl()));
     }
-
     return $instance;
   }
-
   /**
    * Get a Mink Element representing the WYSIWYG toolbar.
    *
@@ -65,7 +62,6 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
    */
   protected function getWysiwygToolbar($instanceId, $editorType) {
     $driver = $this->getSession()->getDriver();
-
     if ($editorType == 'ckeditor') {
       $toolbarElement = $driver->find("//div[@id='cke_edit-body-und-0-value']");
       $toolbarElement = !empty($toolbarElement) ? $toolbarElement[0] : NULL;
@@ -74,14 +70,11 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
       $toolbarElement = $driver->find("//div[@id='{$instanceId}_toolbargroup']");
       $toolbarElement = !empty($toolbarElement) ? $toolbarElement[0] : NULL;
     }
-
     if (!$toolbarElement) {
       throw new \Exception(sprintf('Toolbar for editor "%s" was not found on the page %s', $instanceId, $this->getSession()->getCurrentUrl()));
     }
-
     return $toolbarElement;
   }
-
   /**
    * @When /^I type "([^"]*)" in the "([^"]*)" WYSIWYG editor$/
    */
@@ -89,7 +82,6 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
     $instance = $this->getWysiwygInstance($instanceId);
     $this->getSession()->executeScript("$instance.insertText(\"$text\");");
   }
-
   /**
    * @When /^I fill in the "([^"]*)" WYSIWYG editor with "([^"]*)"$/
    */
@@ -97,20 +89,16 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
     $instance = $this->getWysiwygInstance($instanceId);
     $this->getSession()->executeScript("$instance.setData(\"$text\");");
   }
-
   /**
    * @When /^I click the "([^"]*)" button in the "([^"]*)" WYSIWYG editor$/
    */
   public function iClickTheButtonInTheWysiwygEditor($action, $instanceId) {
     $driver = $this->getSession()->getDriver();
-
     $instance = $this->getWysiwygInstance($instanceId);
     //$editorType = $this->getSession()->evaluateScript("return $instance.editor");
     //$toolbarElement = $this->getWysiwygToolbar($instanceId, $editorType);
-
     // Simulate click using ExecCommand.
     $this->getSession()->executeScript("CKEDITOR.instances[\"$instanceId\"].execCommand(\"$action\");");
-
     // Click the action button.
     //$button = $toolbarElement->find("xpath", "//a[starts-with(@title, '$action')]");
     //if (!$button) {
@@ -119,21 +107,17 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
     //$button->click();
     $driver->wait(1000, TRUE);
   }
-
   /**
    * @When /^I expand the toolbar in the "([^"]*)" WYSIWYG editor$/
    */
   public function iExpandTheToolbarInTheWysiwygEditor($instanceId) {
     $driver = $this->getSession()->getDriver();
-
     $instance = $this->getWysiwygInstance($instanceId);
     $editorType = $this->getSession()->evaluateScript("return $instance.editor");
     $toolbarElement = $this->getWysiwygToolbar($instanceId, $editorType);
-
     // TODO: This is tinyMCE specific. We should probably switch on
     // $editorType.
     $action = 'Show/hide toolbars';
-
     // Expand wysiwyg toolbar.
     $button = $toolbarElement->find("xpath", "//a[starts-with(@title, '$action')]");
     if (!$button) {
@@ -143,7 +127,6 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
       $button->click();
     }
   }
-
   /**
    * @Then /^I should see "([^"]*)" in the "([^"]*)" WYSIWYG editor$/
    */
@@ -154,7 +137,6 @@ class WysiwygSubContext extends BehatContext implements DrupalSubContextInterfac
       throw new \Exception(sprintf('The text "%s" was not found in the "%s" WYSWIYG editor on the page %s', $text, $instanceId, $this->getSession()->getCurrentUrl()));
     }
   }
-
   /**
    * @Then /^I should not see "([^"]*)" in the "([^"]*)" WYSIWYG editor$/
    */

@@ -9,9 +9,9 @@ Feature: Date Modified
     # Create a basic page
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
-        | Title               | Title of Basic Page |
-        | Editor              | plain_text          |
-        | body[und][0][value] | Published body      |
+        | title_field[und][0][value] | Title of Basic Page |
+        | Editor                     | plain_text          |
+        | body[und][0][value]        | Published body      |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
     When I press "edit-submit"

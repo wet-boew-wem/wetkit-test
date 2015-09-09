@@ -7,7 +7,7 @@ Feature: Anonymous user login
   Scenario: Admin user is able to login
     Given I am on "/user"
     When I fill in "admin" for "edit-name"
-    And I fill in "WetKit@2012" for "edit-pass"
+    And I fill in "WetKit@2015" for "edit-pass"
     And I press "Log in"
     Then I should see "Log out"
 
@@ -29,8 +29,8 @@ Feature: Anonymous user login
       And I should see "This login can be used only once."
     When I press the "Log in" button
     Then I should see "You have just used your one-time login link. It is no longer necessary to use this link to log in. Please change your password."
-    When I fill in "WetKit@2013" for "Password"
-      And I fill in "WetKit@2013" for "Confirm password"
+    When I fill in "WxT@2015" for "Password"
+      And I fill in "WxT@2015" for "Confirm password"
       And I press "Save"
     Then I should see "The configuration options have been saved."
     When I click "Log out"

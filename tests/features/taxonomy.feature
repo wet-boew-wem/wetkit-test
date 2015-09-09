@@ -8,7 +8,7 @@ Feature: Test Taxonomies
     Given I am logged in as a user with the "administrator" role
     When I visit "/admin/structure/taxonomy/add"
       And I fill in the following:
-        | Name                           | WxT Taxonomy Name[random]   |
+        | Name                           | WxT Taxonomy Name           |
         | Description                    | WxT Taxonomy Description    |
       And I select "1" from "edit-i18n-mode-1"
       And I press "edit-translate"
@@ -16,7 +16,7 @@ Feature: Test Taxonomies
       Then I click the fake "translate" button
     Then the "h1" element should contain "Translate to French"
       And I fill in the following:
-        | Name                           | WxT Taxonomy French Name[random] |
+        | Name                           | WxT Taxonomy French Name         |
         | Description                    | WxT Taxonomy French Description  |
       And I press "edit-submit"
       And I wait 2 seconds
@@ -28,11 +28,11 @@ Feature: Test Taxonomies
     When I visit "/admin/structure/taxonomy/wetkit_categories"
       Then I click the fake "Add term" button
       And I fill in the following:
-        | Name         | WxT Taxonomy Term[random]   |
+        | Name         | WxT Taxonomy Term |
       And I press "edit-translate"
       Then I click the fake "add" button
       And I fill in the following:
-        | Name         | WxT Taxonomy French Term[random]  |
+        | Name         | WxT Taxonomy French Term |
       And I press "edit-submit"
       And I wait 2 seconds
     Then the "h1" element should contain "WxT Taxonomy French Term"

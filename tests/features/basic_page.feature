@@ -9,9 +9,9 @@ Feature: Basic Page Fields
     # Create a basic page
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
-        | Title               | Title of Basic Page |
-        | Editor              | plain_text          |
-        | body[und][0][value] | Published body      |
+        | title_field[und][0][value] | Title of Basic Page |
+        | Editor                     | plain_text          |
+        | body[und][0][value]        | Published body      |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
       And I check "field_featured_categories[und][1]"
@@ -27,9 +27,9 @@ Feature: Basic Page Fields
     When I click "Translate" in the "Tabs" region
       And I click the fake "add" button
       And I fill in the following:
-        | Title               | French Title of Basic Page  |
-        | Editor              | plain_text                  |
-        | body[fr][0][value]  | French Published body       |
+        | title_field[fr][0][value] | French Title of Basic Page  |
+        | Editor                    | plain_text                  |
+        | body[fr][0][value]        | French Published body       |
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"
     # Check the fields of the translated page
@@ -41,7 +41,7 @@ Feature: Basic Page Fields
     # Create a New Draft in French
     When I click "Nouveau brouillon" in the "Tabs" region
       And I fill in the following:
-        | Title               | French Title of Basic Page Draft |
+        | title_field[fr][0][value] | French Title of Basic Page Draft |
       And I select "Actuel : Draft" from "workbench_moderation_state_new"
     When I press "edit-submit"
     Then the "h1" element should contain "French Title of Basic Page Draft"
