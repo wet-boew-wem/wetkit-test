@@ -32,5 +32,6 @@ Feature: Anonymous user login
     When I fill in "Behat@2015" for "Password"
       And I fill in "Behat@2015" for "Confirm password"
       And I press "Save"
+    Given print the contents of the "Content Well" region
     Then I should see "The changes have been saved."
     When I click "Log out"
