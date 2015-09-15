@@ -457,7 +457,7 @@ class TestSubContext extends RawDrupalContext implements DrupalSubContextInterfa
    */
   public function iAmViewingALandingPage() {
     $node = (object)array(
-      'type' => 'wetkit_test_landing_page',
+      'type' => 'landing_page',
       'title' => $this->getRandom()->name(8),
     );
     $saved = $this->nodeCreate($node);
