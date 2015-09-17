@@ -9,22 +9,22 @@ Feature: Theme selection
     When I visit "/admin/wetkit/wetkit_wetboew"
       And I select "wet-boew" from "edit-wetkit-wetboew-theme"
     When I press "edit-submit"
-    Then I should see an ".wet-boew" element
+    Then I should see an ".theme-wet-boew" element
       And I select "wet-boew" from "edit-wetkit-wetboew-theme"
     When I press "edit-submit"
-    Then I should see an ".wet-boew" element
+    Then I should see an ".theme-wet-boew" element
       And I select "wet-boew-gcwu-fegc" from "edit-wetkit-wetboew-theme"
     When I press "edit-submit"
-    Then I should see an ".wet-boew-gcwu-fegc" element
+    Then I should see an ".theme-gcwu-fegc" element
       And I select "wet-boew-gc-intranet" from "edit-wetkit-wetboew-theme"
     When I press "edit-submit"
-    Then I should see an ".wet-boew-gc-intranet" element
+    Then I should see an ".theme-gc-intranet" element
       And I select "wet-boew-base" from "edit-wetkit-wetboew-theme"
     When I press "edit-submit"
-    Then I should see an ".wet-boew-base" element
+    Then I should see an ".theme-base" element
       And I select "wet-boew-ogpl" from "edit-wetkit-wetboew-theme"
     When I press "edit-submit"
-    Then I should see an ".wet-boew-ogpl" element
+    Then I should see an ".theme-ogpl" element
       And I select "wet-boew-gcweb" from "edit-wetkit-wetboew-theme"
     When I press "edit-submit"
-    Then I should see an ".wet-boew-gcweb" element
+    Then I should see an ".theme-gcweb" element
