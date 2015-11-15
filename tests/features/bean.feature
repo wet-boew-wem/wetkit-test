@@ -82,7 +82,7 @@ Feature: Test Bean Types
         | Title                               | WxT Share Title       |
         | Configure Shared Widget Custom CSS  | WxT-Share-custom-css  |
       And I select "Medium 8" from "Configure Share Span"
-      And I select "Digg" from "Share Widget"
+      And I select "digg" from "Share Widget"
       And I select "Default" from "view_mode"
       And I press "edit-submit"
       And I wait 2 seconds
