@@ -3,13 +3,6 @@ Feature: Metatags
   As a website user
   I need to be able to trust that metatag works consistently
 
-  @api
-  Scenario: Evaluating migrated metatags
-    Given I am on "en/content/drupal-wxt"
-    Then the metatag attribute "dcterms.title" should have the value "Drupal WxT"
-    And I am on "fr/contenu/wxt-drupal"
-    Then the metatag attribute "dcterms.title" should have the value "WxT Drupal"
-
   @api @javascript
   Scenario: Evaluating created metatags
     Given I am logged in as a user with the "administrator" role
