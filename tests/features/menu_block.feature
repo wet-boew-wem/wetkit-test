@@ -10,7 +10,7 @@ Feature: Test Menu Blocks
       And Panopoly magic add content previews are single
       And I am viewing a landing page
     When I customize this page with the Panels IPE
-      And I click "Add new pane"
+      And I click "Add new pane" in the "Pearson Content" region
     And I click "View panes" in the "CTools modal" region
     Then I should see "View: WxT Theme: Home Highlight" in the "CTools modal" region
     When I click "View: WxT Theme: Home Highlight" in the "CTools modal" region
