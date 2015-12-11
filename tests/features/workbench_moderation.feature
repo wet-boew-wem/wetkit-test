@@ -22,6 +22,9 @@ Background:
     Then the "h1" element should contain "Draft title"
     When I click "View published" in the "Tabs" region
     Then the "h1" element should contain "Published title"
+    When I click "Edit draft" in the "Tabs" region
+      And I select "Published" from "workbench_moderation_state_new"
+    When I press "edit-submit"
 
   @api @wetkit_admin
   Scenario: Reverting a revision should create a new draft copy
