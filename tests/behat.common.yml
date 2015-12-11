@@ -32,6 +32,7 @@ default:
         Left Sidebar: "#wb-sec"
         Mega Menu: ".wb-menu"
         Tabs: ".tabs--primary"
+        Language Bar: "#wb-lng"
         # Panels Layout Regions for Drupal WxT
         Pearson Content: ".region-pearson-first"
         Pearson Sidebar: ".region-pearson-second"
