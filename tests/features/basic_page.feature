@@ -42,7 +42,7 @@ Feature: Basic Page Fields
     When I click "Nouveau brouillon" in the "Tabs" region
       And I fill in the following:
         | title_field[fr][0][value] | French Title of Basic Page Draft |
-      And I select "Actuel : Draft" from "workbench_moderation_state_new"
+      And I select "Draft (Current)" from "workbench_moderation_state_new"
     When I press "edit-submit"
     Then the "h1" element should contain "French Title of Basic Page Draft"
     # Edit the Draft in French
