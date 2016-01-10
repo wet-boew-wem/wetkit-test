@@ -11,7 +11,7 @@ Feature: Anonymous user login
     And I press "Log in"
     Then I should see "Log out"
 
-  @standard_login
+  @standard_login @login_email
   Scenario: User can request a new password if it has been lost
     Given I am on "/user/login"
     Then I should see "If you forgot your password, request a new password."
