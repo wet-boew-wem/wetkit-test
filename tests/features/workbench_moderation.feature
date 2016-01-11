@@ -9,7 +9,7 @@ Background:
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
         | title_field[und][0][value]  | Title (Published) |
-        | Editor                      | plain_text        |
+        | body[und][0][format]        | plain_text        |
         | Body                        | Body (Published)  |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
@@ -19,7 +19,7 @@ Background:
     When I click "New draft" in the "Tabs" region
       And I fill in the following:
         | title_field[en][0][value]  | Title (Draft)     |
-        | Editor                     | plain_text        |
+        | body[en][0][format]        | plain_text        |
         | Body                       | Body (Draft)      |
     When I press "edit-submit"
     Then the "h1" element should contain "Title (Draft)"
@@ -30,7 +30,7 @@ Background:
     When I click "Edit draft" in the "Tabs" region
       And I fill in the following:
         | title_field[en][0][value]  | Title (Review) |
-        | Editor                     | plain_text                       |
+        | body[en][0][format]        | plain_text                       |
         | Body                       | Body (Review)      |
       And I select "Needs Review" from "workbench_moderation_state_new"
     When I press "edit-submit"
@@ -42,7 +42,7 @@ Background:
     When I click "Edit draft" in the "Tabs" region
       And I fill in the following:
         | title_field[en][0][value]  | Title (Published + Corrections) |
-        | Editor                     | plain_text                      |
+        | body[en][0][format]        | plain_text                      |
         | Body                       | Title (Published + Corrections) |
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"
@@ -55,7 +55,7 @@ Background:
       And I click the fake "add" button
       And I fill in the following:
         | title_field[fr][0][value] | Titre (Publié)        |
-        | Editor                    | plain_text            |
+        | body[fr][0][format]       | plain_text            |
         | body[fr][0][value]        | Corps (Publié)        |
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"
@@ -64,7 +64,7 @@ Background:
     When I click "Nouveau brouillon" in the "Tabs" region
       And I fill in the following:
         | title_field[fr][0][value]  | Titre (Brouillon)    |
-        | Editor                     | plain_text           |
+        | body[fr][0][format]        | plain_text           |
         | Body                       | Corps (Brouillon)    |
     When I press "edit-submit"
     Then the "h1" element should contain "Titre (Brouillon)"
@@ -75,7 +75,7 @@ Background:
     When I click "Modifier le brouillon" in the "Tabs" region
       And I fill in the following:
         | title_field[fr][0][value]  | Titre (Revue)     |
-        | Editor                     | plain_text        |
+        | body[fr][0][format]        | plain_text        |
         | Body                       | Corps (Revue)     |
       And I select "Needs Review" from "workbench_moderation_state_new"
     When I press "edit-submit"
@@ -87,7 +87,7 @@ Background:
     When I click "Modifier le brouillon" in the "Tabs" region
       And I fill in the following:
         | title_field[fr][0][value]  | Titre (Publié + correctionnel) |
-        | Editor                     | plain_text                     |
+        | body[fr][0][format]        | plain_text                     |
         | Body                       | Corps (Publié + correctionnel) |
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"

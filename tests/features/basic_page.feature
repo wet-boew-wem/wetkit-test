@@ -10,7 +10,7 @@ Feature: Basic Page Fields
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
         | title_field[und][0][value] | Title of Basic Page |
-        | Editor                     | plain_text          |
+        | body[und][0][format]       | plain_text          |
         | body[und][0][value]        | Published body      |
       And I select "Published" from "workbench_moderation_state_new"
       And I select "English" from "edit-language"
@@ -28,7 +28,7 @@ Feature: Basic Page Fields
       And I click the fake "add" button
       And I fill in the following:
         | title_field[fr][0][value] | French Title of Basic Page  |
-        | Editor                    | plain_text                  |
+        | body[fr][0][format]       | plain_text                  |
         | body[fr][0][value]        | French Published body       |
       And I select "Published" from "workbench_moderation_state_new"
     When I press "edit-submit"

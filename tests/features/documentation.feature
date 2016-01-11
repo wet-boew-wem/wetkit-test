@@ -10,7 +10,7 @@ Feature: Documentation content type
     When I visit "/node/add/wetkit-documentation"
       And I fill in the following:
         | title_field[und][0][value] | Title of Documentation Page  |
-        | Editor                     | plain_text                   |
+        | body[und][0][format]       | plain_text                   |
         | body[und][0][value]        | Documentation Published body |
       And I check "Published"
       And I select "English" from "edit-language"
@@ -27,7 +27,7 @@ Feature: Documentation content type
       And I click the fake "add" button
       And I fill in the following:
         | title_field[fr][0][value]  | French Title of Documentation Page  |
-        | Editor                     | plain_text                          |
+        | body[fr][0][format]        | plain_text                          |
         | Body                       | French Documentation Published body |
     When I press "edit-submit"
     # Check the fields of the translated documentation page

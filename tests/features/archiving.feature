@@ -8,7 +8,7 @@ Background:
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
         | title_field[und][0][value] | Title of Basic Page |
-        | Editor                     | plain_text          |
+        | body[und][0][format]       | plain_text          |
         | Body                       | Published body      |
       And I select "Published" from "workbench_moderation_state_new"
       And I check "field_archived_content[und]"

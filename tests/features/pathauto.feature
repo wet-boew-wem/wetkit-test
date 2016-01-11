@@ -8,7 +8,7 @@ Feature: Test pathauto
     When I visit "/node/add/wetkit-page"
       And I fill in the following:
         | title_field[und][0][value]  | Testing title |
-        | Editor                      | plain_text    |
+        | body[und][0][format]        | plain_text    |
         | Body                        | Testing body  |
     When I press "edit-submit"
     Then the "h1" element should contain "Testing title"
