@@ -8,11 +8,11 @@ Feature: Test Bean Types
     Given I am logged in as a user with the "administrator" role
     When I visit "/block/add/wetkit-bean"
       And I fill in the following:
-        | label               | WxT Bean Label  |
-        | Title               | WxT Bean Title  |
-        | body[en][0][format] | plain_text      |
-        | Body                | WxT Bean Body   |
-        | Taxonomy            | departments     |
+        | label                                 | WxT Bean Label  |
+        | Title                                 | WxT Bean Title  |
+        | field_bean_wetkit_body[en][0][format] | plain_text      |
+        | Body                                  | WxT Bean Body   |
+        | Taxonomy                              | departments     |
       And I press "edit-submit"
       And I wait 2 seconds
     Then I should see a ".block-bean" element
@@ -111,10 +111,10 @@ Feature: Test Bean Types
     Given I am logged in as a user with the "administrator" role
     When I visit "/block/add/wetkit-bean"
       And I fill in the following:
-        | label                       | WxT Slideout Label  |
-        | Title                       | WxT Slideout Title  |
-        | body[en][0][format]         | plain_text          |
-        | Body                        | WxT Slideout Body   |
+        | label                                         | WxT Slideout Label  |
+        | Title                                         | WxT Slideout Title  |
+        | field_bean_wetkit_body[en][0][format]         | plain_text          |
+        | Body                                          | WxT Slideout Body   |
       And I select "Default" from "view_mode"
       And I press "edit-submit"
       And I wait 2 seconds
