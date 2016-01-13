@@ -1,7 +1,7 @@
 {
   "require": {
     "drupal/drupal-extension": "3.1.5",
-    "drupal/driver": "dev-master#ae9ff6cf6ad0a029427623d451fa370dde22c833 as 1.1.5"
+    "drupal/drupal-driver": "dev-master#ae9ff6cf6ad0a029427623d451fa370dde22c833 as 1.1.5"
 },
   "config": {
     "bin-dir": "bin/"
