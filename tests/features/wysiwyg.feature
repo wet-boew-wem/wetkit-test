@@ -73,6 +73,7 @@ Feature: Use rich text editor
     When I fill in the following:
         | linkit_search   | Drupal Collaboration |
       And I wait 4 seconds
+      And I hover on the linkit result with selector ".better-autocomplete"
       And I click on the linkit result with selector ".better-autocomplete .highlight"
       And I press "Insert link"
     When I press "edit-submit"
