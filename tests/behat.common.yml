@@ -27,6 +27,7 @@ default:
       region_map:
         # The region on wetkit_page where the body appears (frequently
         # customized on child distributions).
+        Navbar: "#navbar"
         Breadcrumb: "ol.breadcrumb"
         Content Well: "main.container"
         Left Sidebar: "#wb-sec"
