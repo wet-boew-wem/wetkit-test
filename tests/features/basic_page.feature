@@ -19,6 +19,7 @@ Feature: Basic Page Fields
     When I press "edit-submit"
     # Check the fields of the basic page
     Then the "h1" element should contain "Title of Basic Page"
+        And print the contents of the "Content Well" region
         And I should see the breadcrumb "Title of Basic Page"
         And the "p" element should contain "Published body"
         And I should see "departments" in the "Content Well"
