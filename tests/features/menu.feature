@@ -34,6 +34,7 @@ Feature: Test Menus
     When I click the fake "edit" button
       Then I click the fake "Translate" button
       Then I click the fake "add translation" button
+      Then I click "Menu link attributes"
       And I fill in the following:
         | Menu link title                  | WxT menu french link         |
         | edit-options-attributes-title    | WxT menu link french title   |
