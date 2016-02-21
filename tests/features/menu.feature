@@ -16,6 +16,7 @@ Feature: Test Menus
     Then the "h1" element should contain "WxT menu title"
     # Test creating a menu link
     When I click the fake "Add link" button
+      Then I click "Menu link attributes"
       And I fill in the following:
         | Menu link title                 | WxT menu link         |
         | edit-link-path                  | <front>               |
