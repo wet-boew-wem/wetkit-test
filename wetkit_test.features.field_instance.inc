@@ -10,7 +10,7 @@
 function wetkit_test_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-wetkit_test_page-body'
+  // Exported field_instance: 'node-wetkit_test_page-body'.
   $field_instances['node-wetkit_test_page-body'] = array(
     'bundle' => 'wetkit_test_page',
     'default_value' => NULL,
@@ -46,6 +46,7 @@ function wetkit_test_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -60,7 +61,7 @@ function wetkit_test_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-wetkit_test_page-field_featured_categories'
+  // Exported field_instance: 'node-wetkit_test_page-field_featured_categories'.
   $field_instances['node-wetkit_test_page-field_featured_categories'] = array(
     'bundle' => 'wetkit_test_page',
     'default_value' => NULL,
@@ -92,6 +93,7 @@ function wetkit_test_field_default_field_instances() {
     'label' => 'Categories',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -103,7 +105,7 @@ function wetkit_test_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-wetkit_test_page-field_featured_image'
+  // Exported field_instance: 'node-wetkit_test_page-field_featured_image'.
   $field_instances['node-wetkit_test_page-field_featured_image'] = array(
     'bundle' => 'wetkit_test_page',
     'deleted' => 0,
@@ -139,6 +141,7 @@ function wetkit_test_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -173,7 +176,7 @@ function wetkit_test_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-wetkit_test_page-field_featured_status'
+  // Exported field_instance: 'node-wetkit_test_page-field_featured_status'.
   $field_instances['node-wetkit_test_page-field_featured_status'] = array(
     'bundle' => 'wetkit_test_page',
     'default_value' => array(
@@ -209,6 +212,7 @@ function wetkit_test_field_default_field_instances() {
     'label' => 'Feature content',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
