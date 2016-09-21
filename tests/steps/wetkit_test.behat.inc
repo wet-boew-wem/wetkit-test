@@ -220,7 +220,7 @@ class TestSubContext extends RawDrupalContext implements DrupalSubContextInterfa
    *
    * @AfterUserCreate
    */
-  public static function afterUserCreate(AfterUserCreateScope $scope) {
+  public function afterUserCreate(AfterUserCreateScope $scope) {
     $user = $scope->getEntity();
     $this->external_users[$user->name] = $user;
   }
