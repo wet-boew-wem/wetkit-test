@@ -64,7 +64,7 @@ default:
         Footer: ".region-footer"
         Search: "#search-form"
         Panopoly Magic Style Settings: "#panels-edit-style-settings-form #edit-general-settings"
-
+        Browser: "#media-browser-page-wrapper"
 # Setup for Google Chrome only tests.
 chrome:
   suites:

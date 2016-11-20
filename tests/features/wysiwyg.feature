@@ -38,6 +38,7 @@ Feature: Use rich text editor
       And I attach the file "test-lg.png" to "files[upload]"
       And I press "Next"
       And I wait 2 seconds
+    Then print the contents of the "Browser" region
     Then I should see a "#edit-scheme" element
     # Select the destination (public/private files).
     When I select the radio button "Public local files served by the webserver."
