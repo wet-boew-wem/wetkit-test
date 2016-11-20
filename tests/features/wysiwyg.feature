@@ -52,8 +52,7 @@ Feature: Use rich text editor
     When I wait 10 seconds
       And I switch to the frame "mediaStyleSelector"
       And I select "WYSIWYG" from "format"
-    When I wait 10 seconds
-    Then print the contents of the "Browser" region
+    When I wait 5 seconds
     Then the "Alt Text" field should contain "Sample alt text"
       And the "Title Text" field should contain "Sample title text"
       And I click the fake "Submit" button
