@@ -14,8 +14,8 @@ Feature: Documentation content type
         | body[en][0][value]        | Documentation Published body |
       And I check "Published"
       And I select "English" from "edit-language"
-      And I check "field_featured_categories[en][1]"
-      And I check "field_featured_categories[en][2]"
+      And I check "field_featured_categories[und][1]"
+      And I check "field_featured_categories[und][2]"
     When I press "edit-submit"
     # Check the fields of the documentation page
     Then the "h1" element should contain "Title of Documentation Page"
