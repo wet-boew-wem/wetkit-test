@@ -35,6 +35,5 @@ Feature: Test Taxonomies
         | Name         | WxT Taxonomy French Term |
       And I press "edit-submit"
       And I wait 2 seconds
-    Then the "h1" element should contain "WxT Taxonomy French Term"
     Given I am on "en/admin/structure/taxonomy/wetkit_categories"
     Then I should see "WxT Taxonomy Term" in the "Content Well"
