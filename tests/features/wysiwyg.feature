@@ -10,7 +10,7 @@ Feature: Use rich text editor
         | title_field[und][0][value] | Testing WYSIWYG       |
         | body[und][0][format]       | wetkit_wysiwyg_text   |
 
-  @api @javascript @chrome
+  @api @javascript
   Scenario Outline: Format text in the editor
     When I click the "<Action>" button in the "edit-body-und-0-value" WYSIWYG editor
       And I type "Testing body" in the "edit-body-und-0-value" WYSIWYG editor
@@ -64,7 +64,7 @@ Feature: Use rich text editor
       And I should see the image alt "Sample alt text" in the "Pearson Content" region
 
   # Test the Linkit plugin.
-  @api @javascript @chrome
+  @api @javascript
   Scenario: Add an link using Linkit
     When I type "Testing body" in the "edit-body-und-0-value" WYSIWYG editor
     # Insert a link.
