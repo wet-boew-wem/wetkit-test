@@ -30,7 +30,7 @@ Feature: Test Taxonomies
       And I fill in the following:
         | Name         | WxT Taxonomy Term |
       And I press "edit-translate"
-      Then I click the fake "add" button
+      Then I click the fake "translate" button
       And I fill in the following:
         | Name         | WxT Taxonomy French Term |
       And I press "edit-submit"
